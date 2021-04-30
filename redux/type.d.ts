@@ -6,12 +6,13 @@ interface ProductType {
 
 type ProductState = {
   products: ProductType[]
+  loading: boolean
+  error: null
 }
 
 type ProductAction = {
-  type?: string
-  payload?: ProductType
-  product?: ProductType
+  type: any
+  payload?: any
 }
 
 type DispactchType = (args: ProductAction) => ProductAction
