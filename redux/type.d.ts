@@ -12,7 +12,7 @@ type ProductState = {
 
 type ProductAction = {
   type: any
-  payload?: any
+  payload: any
 }
 
 type DispactchType = (args: ProductAction) => ProductAction
