@@ -24,8 +24,6 @@ const ProductListing = () => {
     fetchProducts()
   }, [])
 
-  console.log('Products', products)
-
   return (
     <div>
       <ProductComponent />
