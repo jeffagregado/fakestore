@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import Loader from '../../components/Loader'
 import {
   selectedProduct,
   removeProduct,
@@ -38,7 +39,7 @@ const Products = () => {
   return (
     <>
       {Object.keys(product).length === 0 ? (
-        <div>Loading...</div>
+        <Loader />
       ) : (
         <>
           <h1>Hello {id}</h1>
