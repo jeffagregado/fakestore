@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
@@ -14,7 +15,6 @@ const Products = () => {
   const dispatch = useDispatch()
   const router = useRouter()
   const { id }: any = router.query
-
   const fetchProductDetail = async () => {
     await axios
       .get(`https://fakestoreapi.com/products/${id}`)
@@ -25,17 +25,13 @@ const Products = () => {
         console.log('Err', err)
       })
   }
-
   useEffect(() => {
     if (id && id !== '') fetchProductDetail()
-
     return () => {
       dispatch(removeProduct())
     }
   }, [id])
-
   console.log('Product', product)
-
   return (
     <>
       {Object.keys(product).length === 0 ? (

@@ -1,5 +1,3 @@
-//import { ActionType, StateType } from 'typesafe-actions'
-
 interface ProductType {
   id: number
   title: string
@@ -27,19 +25,3 @@ interface State {
 }
 
 type DispactchType = (args: ProductAction) => ProductAction
-
-/* declare module 'typesafe-actions' {
-  export type Store = StateType<typeof import('./reducers/index').default>
-
-  export type RootState = StateType<
-    typeof import('./reducers/productReducers').default
-  >
-
-  export type RootAction = ActionType<
-    typeof import('./actions/productActions').default
-  >
-
-  interface Types {
-    RootAction: RootAction
-  }
-} */
