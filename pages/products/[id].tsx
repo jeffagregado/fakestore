@@ -31,7 +31,6 @@ const Products = () => {
       dispatch(removeProduct())
     }
   }, [id])
-  console.log('Product', product)
   return (
     <>
       {Object.keys(product).length === 0 ? (
