@@ -1,6 +1,8 @@
 import { AppProps } from 'next/app'
 import Layout from '../components/Layout'
 import '../styles/globals.scss'
+
+// Redux
 import { Provider } from 'react-redux'
 import store from '../redux/store'
 import { createWrapper } from 'next-redux-wrapper'

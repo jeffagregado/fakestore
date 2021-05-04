@@ -1,15 +1,9 @@
 import * as types from '../actionTypes'
 
 const initialState = {
-  products: [
-    {
-      id: 0,
-      title: 'Sample Product',
-      category: 'sample',
-    },
-  ],
+  products: [],
   loading: false,
-  error: null,
+  error: '',
 }
 
 export const productReducers = (
@@ -19,11 +13,26 @@ export const productReducers = (
   switch (action.type) {
     case types.ActionTypes.SET_PRODUCTS:
       return {
-        state,
-        //products: action.payload,
+        ...state,
+        products: action.payload,
         //loading: false,
         //error: null,
       }
+
+    default:
+      return state
+  }
+}
+
+export const selectedProductReducer = (state = {}, action: ProductAction) => {
+  switch (action.type) {
+    case types.ActionTypes.SELECTED_PRODUCT:
+      return {
+        ...state,
+        ...action.payload,
+      }
+    case types.ActionTypes.REMOVE_SELECTED_PRODUCT:
+      return {}
 
     default:
       return state

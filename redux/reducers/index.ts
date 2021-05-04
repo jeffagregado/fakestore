@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
 //import { postReducer } from './postReducers';
-import { productReducers } from './productReducers';
+import { productReducers, selectedProductReducer } from './productReducers';
 
 export default combineReducers({
     //post: postReducer
-    allproducts: productReducers
+    allproducts: productReducers,
+    product: selectedProductReducer
 })
