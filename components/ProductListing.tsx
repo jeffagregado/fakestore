@@ -12,9 +12,9 @@ const ProductListing = () => {
   const fetchProducts = async () => {
     await axios
       .get('https://fakestoreapi.com/products')
-        .then((res) => {
-          dispatch(setProducts(res.data))
-        })
+      .then((res) => {
+        dispatch(setProducts(res.data))
+      })
       .catch((err) => {
         console.log('Err', err)
       })
@@ -25,7 +25,7 @@ const ProductListing = () => {
   }, [])
 
   return (
-    <div>
+    <div className="container flex flex-wrap justify-center md:justify-start gap-2">
       <ProductComponent />
     </div>
   )
