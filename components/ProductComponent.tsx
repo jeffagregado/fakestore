@@ -16,20 +16,13 @@ const ProductComponent = () => {
 
   const dispatch = useDispatch()
 
-  const showMore = useCallback(
-    (e) => {
-      //setNumItems(numItems + 5)
-      dispatch(setShowMore(indexNumber + 5))
-      if (indexNumber >= products.length) {
-        null
-        e.preventDefault()
-      }
-      e.preventDefault()
-    },
-    [indexNumber]
-  )
-
-  console.log('indexNumber', indexNumber)
+  const showMore = useCallback(() => {
+    //setNumItems(numItems + 5)
+    dispatch(setShowMore(indexNumber + 5))
+    if (indexNumber >= products.length) {
+      null
+    }
+  }, [indexNumber])
 
   return (
     <>
