@@ -16,8 +16,8 @@ const ProductComponent = () => {
 
   const dispatch = useDispatch()
 
+  // Used redux to remain the state of the showed products
   const showMore = useCallback(() => {
-    //setNumItems(numItems + 5)
     dispatch(setShowMore(indexNumber + 5))
     if (indexNumber >= products.length) {
       null
@@ -26,7 +26,7 @@ const ProductComponent = () => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="flex flex-wrap justify-center md:justify-start gap-2">
         {products.slice(0, indexNumber).map((product) => {
           return (
             <React.Fragment key={product.id}>
