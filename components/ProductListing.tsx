@@ -26,8 +26,6 @@ const ProductListing = () => {
     fetchProducts()
   }, [])
 
-  console.log('loading', isFetch)
-
   const isEmpty = products.length === 0
 
   return (
