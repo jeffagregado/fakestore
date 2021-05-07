@@ -4,7 +4,12 @@ const initialState = {
   products: [],
   loading: false,
   error: '',
+  index: 5,
 }
+
+// const itemNumberState = {
+//   index: 5,
+// }
 
 export const productReducers = (
   state: ProductState = initialState,
@@ -27,6 +32,12 @@ export const productReducers = (
         //error: null,
       }
 
+    case types.ActionTypes.SHOW_MORE_PRODUCT:
+      return {
+        ...state,
+        index: action.payload,
+      }
+
     default:
       return state
   }
@@ -46,3 +57,19 @@ export const selectedProductReducer = (state = {}, action: ProductAction) => {
       return state
   }
 }
+
+// export const showMoreReducer = (
+//   state: ShowMoreType = itemNumberState,
+//   action: ProductAction
+// ) => {
+//   switch (action.type) {
+//     case types.ActionTypes.SHOW_MORE_PRODUCT:
+//       return {
+//         ...state,
+//         index: initialState.products.length + 5,
+//       }
+
+//     default:
+//       break
+//   }
+// }

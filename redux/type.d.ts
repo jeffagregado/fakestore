@@ -7,14 +7,19 @@ interface ProductType {
   image: string
 }
 
+interface ShowMoreType {
+  index: number
+}
+
 type ProductState = {
   products: ProductType[]
   loading: boolean
   error: string
+  index: any
 }
 
 type ProductAction = {
-  type: any
+  type: string
   payload: any
 }
 
@@ -23,6 +28,7 @@ interface State {
     products: ProductType[]
     loading: boolean
     error: string | null
+    index: any
   }
   product: ProductType
 }

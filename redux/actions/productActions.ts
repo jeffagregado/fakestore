@@ -26,3 +26,10 @@ export const removeProduct = () => {
     type: types.ActionTypes.REMOVE_SELECTED_PRODUCT,
   }
 }
+
+export const setShowMore = (state: DispactchType) => {
+  return {
+    type: types.ActionTypes.SHOW_MORE_PRODUCT,
+    payload: state,
+  }
+}

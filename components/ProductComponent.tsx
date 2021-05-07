@@ -1,35 +1,40 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Link from 'next/link'
 import Card from './Card'
 import React, { useState, useCallback } from 'react'
+import { setShowMore } from '../redux/actions/productActions'
 
 const ProductComponent = () => {
   const products = useSelector((state: State) => state.allproducts.products)
-  const [numItems, setNumItems] = useState(5)
+  const indexNumber = useSelector((state: State) => state.allproducts.index)
+  //const [numItems, setNumItems] = useState(5)
 
   // Limit string
   const limitString = (desc: string) => {
     return desc.length > 50 ? `${desc.substring(0, 50)} . . .` : desc
   }
 
+  const dispatch = useDispatch()
+
   const showMore = useCallback(
     (e) => {
-      setNumItems(numItems + 5)
-      if (numItems >= products.length) {
+      //setNumItems(numItems + 5)
+      dispatch(setShowMore(indexNumber + 5))
+      if (indexNumber >= products.length) {
         null
         e.preventDefault()
       }
       e.preventDefault()
     },
-    [numItems]
+    [indexNumber]
   )
 
-  console.log('number', numItems)
+  console.log('indexNumber', indexNumber)
 
   return (
     <>
       <div className="flex flex-wrap justify-center gap-2">
-        {products.slice(0, numItems).map((product) => {
+        {products.slice(0, indexNumber).map((product) => {
           return (
             <React.Fragment key={product.id}>
               <Link href={`/products/[id]`} as={`/products/${product.id}`}>
@@ -50,7 +55,7 @@ const ProductComponent = () => {
         })}
       </div>
       <div className="w-full flex justify-center my-4">
-        {numItems >= products.length ? null : (
+        {indexNumber >= products.length ? null : (
           <button
             className="bg-gray-400 text-white rounded-2xl p-4"
             type="button"
