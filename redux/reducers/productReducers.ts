@@ -11,11 +11,19 @@ export const productReducers = (
   action: ProductAction
 ) => {
   switch (action.type) {
+    case types.ActionTypes.FETCH_PRODUCTS:
+      return {
+        ...state,
+        //products: action.payload,
+        loading: true,
+        //error: null,
+      }
+
     case types.ActionTypes.SET_PRODUCTS:
       return {
         ...state,
         products: action.payload,
-        //loading: false,
+        loading: false,
         //error: null,
       }
 

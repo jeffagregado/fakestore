@@ -21,6 +21,8 @@ type ProductAction = {
 interface State {
   allproducts: {
     products: ProductType[]
+    loading: boolean
+    error: string | null
   }
   product: ProductType
 }
