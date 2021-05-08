@@ -37,11 +37,13 @@ const Products = () => {
         <Loader />
       ) : (
         <>
-          <h1>Hello {id}</h1>
-          <h2>Title {title}</h2>
-          <sub>{category}</sub>
-          <h3>${price}</h3>
-          <p>{description}</p>
+          <div className="container">
+            <h1>Hello {id}</h1>
+            <h2>Title {title}</h2>
+            <sub>{category}</sub>
+            <h3>${price}</h3>
+            <p>{description}</p>
+          </div>
         </>
       )}
     </>
