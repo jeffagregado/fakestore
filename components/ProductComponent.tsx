@@ -30,7 +30,7 @@ const ProductComponent = () => {
         {products.slice(0, indexNumber).map((product) => {
           return (
             <React.Fragment key={product.id}>
-              <Link href={`/products/[id]`} as={`/products/${product.id}`}>
+              <Link href={`/products/${product.id}`}>
                 <a>
                   <Card src={product.image} alt={product.title}>
                     <div className="mb-4">
