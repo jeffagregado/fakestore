@@ -14,6 +14,7 @@ const ProductListing = () => {
     await axios
       .get('https://fakestoreapi.com/products')
       .then((res) => {
+        console.log('res', res)
         dispatch(fetchingProducts())
         dispatch(setProducts(res.data))
       })
@@ -30,7 +31,7 @@ const ProductListing = () => {
 
   return (
     <div className="container">
-      {isEmpty ? (!isFetch && <Loader />) : <ProductComponent />}
+      {isEmpty ? !isFetch && <Loader /> : <ProductComponent />}
     </div>
   )
 }
