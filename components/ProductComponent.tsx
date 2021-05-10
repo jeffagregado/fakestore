@@ -7,11 +7,10 @@ import { setShowMore } from '../redux/actions/productActions'
 const ProductComponent = () => {
   const products = useSelector((state: State) => state.allproducts.products)
   const indexNumber = useSelector((state: State) => state.allproducts.index)
-  //const [numItems, setNumItems] = useState(5)
 
   // Limit string
-  const limitString = (desc: string) => {
-    return desc.length > 50 ? `${desc.substring(0, 50)} . . .` : desc
+  const limitString = (desc: string, limit: number) => {
+    return desc.length > limit ? `${desc.substring(0, limit)} . . .` : desc
   }
 
   const dispatch = useDispatch()
@@ -26,7 +25,7 @@ const ProductComponent = () => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center md:justify-start gap-2">
+      <div className="flex flex-wrap justify-center lg:justify-start gap-2">
         {products.slice(0, indexNumber).map((product) => {
           return (
             <React.Fragment key={product.id}>
@@ -34,11 +33,13 @@ const ProductComponent = () => {
                 <a>
                   <Card src={product.image} alt={product.title}>
                     <div className="mb-4">
-                      <h1 className="font-bold mb-2">{product.title}</h1>
+                      <h1 className="font-bold mb-2">
+                        {limitString(product.title, 50)}
+                      </h1>
                       <h2 className="font-medium">${product.price}</h2>
                     </div>
                     <p className="text-gray-400">
-                      {limitString(product.description)}
+                      {limitString(product.description, 50)}
                     </p>
                   </Card>
                 </a>
