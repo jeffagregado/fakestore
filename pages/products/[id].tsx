@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import CardProduct from '../../components/CardProduct'
 import Loader from '../../components/Loader'
 import {
   selectedProduct,
@@ -11,7 +12,7 @@ import {
 
 const Products = () => {
   const product = useSelector((state: State) => state.product)
-  const { title, category, price, description }: ProductType = product
+  const { title, category, price, description, image }: ProductType = product
   const dispatch = useDispatch()
   const router = useRouter()
   const { id }: any = router.query
@@ -37,13 +38,20 @@ const Products = () => {
         <Loader />
       ) : (
         <>
-          <div className="container">
+          {/* <div className="container">
             <h1>Hello {id}</h1>
             <h2>Title {title}</h2>
             <sub>{category}</sub>
             <h3>${price}</h3>
             <p>{description}</p>
-          </div>
+          </div> */}
+          <CardProduct
+            title={title}
+            category={category}
+            price={price}
+            description={description}
+            image={image}
+          />
         </>
       )}
     </>
