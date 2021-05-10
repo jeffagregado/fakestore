@@ -4,7 +4,7 @@ const initialState = {
   products: [],
   loading: false,
   error: '',
-  index: 5,
+  index: 10,
 }
 
 // const itemNumberState = {
