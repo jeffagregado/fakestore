@@ -1,11 +1,17 @@
+import Link from 'next/link'
+
 const Header = () => {
-    return ( 
-        <div className=''>
-            <nav className='container my-6'>
-                <h1 className='text-2xl font-bold'>FakeShop</h1>
-            </nav>
-        </div>
-     );
+  return (
+    <div className="container my-6">
+      <nav className="">
+        <h1 className="text-2xl font-bold">
+          <Link href="/">
+            <a>FakeShop</a>
+          </Link>
+        </h1>
+      </nav>
+    </div>
+  )
 }
- 
-export default Header;
+
+export default Header
