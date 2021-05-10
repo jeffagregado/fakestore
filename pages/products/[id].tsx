@@ -14,7 +14,7 @@ const Products = ({ product }: any) => {
   // const product = useSelector((state: State) => state.product)
   // const { title, category, price, description, image }: ProductType = product
   // const dispatch = useDispatch()
-  // const router = useRouter()
+  const router = useRouter()
   // const { id }: any = router.query
   // const fetchProductDetail = async () => {
   //   await axios
@@ -33,6 +33,12 @@ const Products = ({ product }: any) => {
   //   }
   // }, [id])
 
+  // If the page is not yet generated, this will be displayed
+  // initially until getStaticProps() finishes running
+  if (router.isFallback) {
+    return <Loader />
+  }
+
   return (
     <>
       {/* {Object.keys(product).length === 0 ? (
@@ -49,12 +55,12 @@ const Products = ({ product }: any) => {
         </>
       )} */}
       <CardProduct
-            title={product.title}
-            category={product.category}
-            price={product.price}
-            description={product.description}
-            image={product.image}
-          />
+        title={product.title}
+        category={product.category}
+        price={product.price}
+        description={product.description}
+        image={product.image}
+      />
     </>
   )
 }
@@ -71,7 +77,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }
 
