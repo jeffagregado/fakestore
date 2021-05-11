@@ -4,13 +4,17 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import CardProduct from '../../components/CardProduct'
 import Loader from '../../components/Loader'
-import { GetStaticPaths } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import {
   selectedProduct,
   removeProduct,
 } from '../../redux/actions/productActions'
 
-const Products = ({ product }: any) => {
+type ProductProps = {
+  product: ProductType
+}
+
+const Products = ({ product }: ProductProps) => {
   // const product = useSelector((state: State) => state.product)
   // const { title, category, price, description, image }: ProductType = product
   // const dispatch = useDispatch()
@@ -65,7 +69,7 @@ const Products = ({ product }: any) => {
   )
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch('https://fakestoreapi.com/products')
   const data = await res.json()
 
@@ -81,7 +85,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async (context: any) => {
+export const getStaticProps: GetStaticProps = async (context: any) => {
   const id = context.params.id
   const res = await fetch(`https://fakestoreapi.com/products/${id}`)
   const data = await res.json()
