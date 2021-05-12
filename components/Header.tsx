@@ -14,7 +14,12 @@ const Header = () => {
               <a>FakeShop</a>
             </h1>
           </Link>
-          <button onClick={showLogIn}>LogIn</button>
+          <button
+            onClick={showLogIn}
+            className="bg-blue-600 hover:bg-blue-700 rounded-3xl py-2 px-4"
+          >
+            <span className="text-white font-semibold text-2xl">Login</span>
+          </button>
         </nav>
       </div>
     </>
