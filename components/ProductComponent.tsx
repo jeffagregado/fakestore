@@ -47,8 +47,8 @@ const ProductComponent = () => {
             </React.Fragment>
           )
         })}
-        <div className="w-60 flex justify-center items-center">
-          {indexNumber >= products.length ? null : (
+        {indexNumber >= products.length ? null : (
+          <div className="w-60 flex justify-center items-center">
             <button
               className="bg-gray-400 text-white rounded-lg p-4"
               type="button"
@@ -56,8 +56,8 @@ const ProductComponent = () => {
             >
               Show more
             </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </>
   )
