@@ -14,7 +14,6 @@ const ProductListing = () => {
     await axios
       .get('https://fakestoreapi.com/products')
       .then((res) => {
-        console.log('res', res)
         dispatch(fetchingProducts())
         dispatch(setProducts(res.data))
       })

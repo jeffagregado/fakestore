@@ -3,10 +3,10 @@ import useComponentVisible from './functions/clickOutside'
 
 interface Props {
   children: ReactNode
-  state: boolean
+  className?: string
 }
 
-const ClickOutsideContainer = ({ children, state }: Props) => {
+const ClickOutsideContainer = ({ children, className }: Props) => {
   const {
     ref,
     isComponentVisible,
@@ -14,9 +14,9 @@ const ClickOutsideContainer = ({ children, state }: Props) => {
   } = useComponentVisible(false)
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className={className}>
       {isComponentVisible && children}
-      {!isComponentVisible && setIsComponentVisible(state)}
+      {/* {!isComponentVisible && setIsComponentVisible(state)} */}
     </div>
   )
 }
