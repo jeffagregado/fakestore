@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import { useStore } from '../src/store'
+import Button from './Button'
 
 const Header = () => {
   const showLogIn = useStore((state) => state.isLogIn)
-  const stateLogIn = useStore((state) => state.showLogin)
-  console.log('StateLogin', stateLogIn)
   return (
     <>
       <div className="container my-6">
@@ -14,12 +13,7 @@ const Header = () => {
               <a>FakeShop</a>
             </h1>
           </Link>
-          <button
-            onClick={showLogIn}
-            className="bg-blue-600 hover:bg-blue-700 rounded-3xl py-2 px-4"
-          >
-            <span className="text-white font-semibold text-2xl">Login</span>
-          </button>
+          <Button onClick={showLogIn}>Login</Button>
         </nav>
       </div>
     </>

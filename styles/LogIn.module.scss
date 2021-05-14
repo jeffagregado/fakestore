@@ -1,19 +1,17 @@
-.login_popup {
+.login_overlay {
   background: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
-  display: none;
+  left: 0;
+  z-index: 9999;
+  display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  backdrop-filter: blur(10px);
 
-  &.login-show {
-    display: flex;
-  }
-
-  > .login_content {
+  > .login_modal {
     width: 350px;
     height: 500px;
     padding: 2em;
@@ -21,6 +19,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+}
+
+@keyframes opaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opaqueOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
