@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   important: true,
@@ -7,10 +8,6 @@ module.exports = {
       center: true,
       padding: '1.5rem',
     },
-    /*     colors: {
-      primary: '#383E4C',
-      secondary: '#F2F2F2',
-    }, */
     extend: {
       colors: {
         'nav-bg': '#383E4C',

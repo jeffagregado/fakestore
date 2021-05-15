@@ -8,9 +8,12 @@ interface Props {
 }
 
 const LogIn = ({ isOpen }: Props) => {
-  const stateLogIn = useStore((state) => state.showLogin)
-  const isLogIn = useStore((state) => state.isLogIn)
-  console.log('state', stateLogIn)
+  const [stateLogIn, isLogIn] = useStore((state) => [
+    state.showLogin,
+    state.isLogIn,
+  ])
+  // const stateLogIn = useStore((state) => state.showLogin)
+  // const isLogIn = useStore((state) => state.isLogIn)
 
   useEffect(() => {
     if (stateLogIn && (document.body.style.overflow = 'hidden'))
