@@ -124,8 +124,8 @@ const ProductComponent = () => {
           )}
         </div>
 
-        <div className="p-4 mb-4 row-start-1 row-end-2 lg:row-start-auto lg:row-end-auto border-2 border-solid border-gray-200">
-          <div className="">
+        <div className="p-4 mb-4 row-start-1 row-end-2 lg:row-start-auto lg:row-end-auto">
+          <div className="border-b-2 border-solid border-gray-200 pb-4">
             <div className="flex justify-between mb-2">
               <h2 className="font-semibold flex-grow-[2] text-center">
                 Categories
