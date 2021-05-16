@@ -9,7 +9,7 @@ const Header = () => {
       <div className="container my-6">
         <nav className="flex justify-between items-center">
           <Link href="/">
-            <h1 className="text-2xl font-bold">
+            <h1 className="text-2xl font-bold cursor-pointer">
               <a>FakeShop</a>
             </h1>
           </Link>

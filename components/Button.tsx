@@ -9,10 +9,10 @@ interface Props {
 const Button = ({ onClick, children }: Props) => {
   const variants: Variants = {
     hover: {
-      scale: 1.1,
+      translateY: -5,
       transition: {
-        duration: 1,
-        repeat: Infinity,
+        duration: 0.5,
+        //repeat: Infinity,
         repeatType: 'mirror',
       },
     },
@@ -22,7 +22,7 @@ const Button = ({ onClick, children }: Props) => {
       onClick={onClick}
       variants={variants}
       whileHover="hover"
-      className="bg-blue-600 hover:bg-blue-700 rounded-3xl py-2 px-4"
+      className="bg-blue-600 hover:bg-blue-700 rounded-3xl py-2 px-4 shadow-lg"
     >
       <span className="text-white font-semibold text-2xl">{children}</span>
     </motion.button>
