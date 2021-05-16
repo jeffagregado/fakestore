@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux'
 import Link from 'next/link'
 import Card from './Card'
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   setShowMore,
   setCurrentCategory,
@@ -14,6 +15,8 @@ const ProductComponent = () => {
   const currentCategory = useSelector(
     (state: State) => state.allproducts.isCurrentCategory
   )
+
+  const [isActiveFilter, setIsActiveFilter] = useState(false)
 
   // dispatch
   const dispatch = useDispatch()
@@ -46,7 +49,7 @@ const ProductComponent = () => {
 
   return (
     <>
-      <div className="grid md:grid-cols-6 gap-x-4">
+      <div className="grid grid-cols-1 lg:grid-cols-6 lg:gap-x-4">
         <div className="flex flex-wrap col-span-5 justify-center lg:justify-start gap-2">
           {currentCategory === '' ? (
             // default listings
@@ -121,10 +124,24 @@ const ProductComponent = () => {
           )}
         </div>
 
-        <div className="p-4 border-2 border-solid border-gray-200">
-          <div>
-            <h2 className="mb-2 font-semibold">Categories</h2>
-            <ul className="space-y-2">
+        <div className="p-4 mb-4 row-start-1 row-end-2 lg:row-start-auto lg:row-end-auto border-2 border-solid border-gray-200">
+          <div className="">
+            <div className="flex justify-between mb-2">
+              <h2 className="font-semibold flex-grow-[2] text-center">
+                Categories
+              </h2>
+              <button
+                className="lg:hidden"
+                onClick={() => setIsActiveFilter(!isActiveFilter)}
+              >
+                <FontAwesomeIcon icon="chevron-down" />
+              </button>
+            </div>
+            <ul
+              className={`space-y-2 flex flex-col items-center justify-center lg:block ${
+                !isActiveFilter ? 'hidden' : 'block'
+              }`}
+            >
               <li>
                 <button
                   type="button"

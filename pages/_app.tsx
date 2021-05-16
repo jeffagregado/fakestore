@@ -5,6 +5,14 @@ import Router from 'next/router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
+// fontAwesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+
+library.add(faChevronDown)
+
 // Redux
 import { Provider } from 'react-redux'
 import store from '../redux/store'
@@ -25,6 +33,7 @@ Router.events.on('routeChangeError', () => {
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
+  config.autoAddCss = false
   return (
     <>
       {/* <Layout>
