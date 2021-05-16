@@ -2,6 +2,7 @@ import * as types from '../actionTypes'
 
 const initialState = {
   products: [],
+  isCurrentCategory: '',
   loading: false,
   error: '',
   index: 10,
@@ -36,6 +37,12 @@ export const productReducers = (
       return {
         ...state,
         index: action.payload,
+      }
+
+    case 'SELECT_PRODUCT_CATEGORY':
+      return {
+        ...state,
+        isCurrentCategory: action.payload,
       }
 
     default:

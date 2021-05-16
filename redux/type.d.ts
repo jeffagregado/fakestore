@@ -13,6 +13,7 @@ interface ShowMoreType {
 
 type ProductState = {
   products: ProductType[]
+  isCurrentCategory: string
   loading: boolean
   error: string
   index: any
@@ -26,6 +27,7 @@ type ProductAction = {
 interface State {
   allproducts: {
     products: ProductType[]
+    isCurrentCategory: string
     loading: boolean
     error: string | null
     index: any

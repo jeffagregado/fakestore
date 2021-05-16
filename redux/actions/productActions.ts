@@ -33,3 +33,10 @@ export const setShowMore = (state: DispactchType) => {
     payload: state,
   }
 }
+
+export const setCurrentCategory = (state: DispactchType) => {
+  return {
+    type: 'SELECT_PRODUCT_CATEGORY',
+    payload: state,
+  }
+}
