@@ -18,7 +18,6 @@
     "@tailwindcss/forms": "^0.3.2",
     "@types/nprogress": "^0.2.0",
     "@types/react-scroll": "^1.8.2",
-    "@windmill/react-ui": "^0.5.1",
     "axios": "^0.21.1",
     "framer-motion": "^4.1.16",
     "next": "10.1.3",

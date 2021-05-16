@@ -145,7 +145,7 @@ const ProductComponent = () => {
               <li>
                 <button
                   type="button"
-                  className={`focus:outline-none ${
+                  className={`${
                     currentCategory === '' && 'active: text-yellow-400'
                   }`}
                   onClick={() => selectCategory('')}
@@ -158,7 +158,7 @@ const ProductComponent = () => {
                   <li key={product.category}>
                     <button
                       type="button"
-                      className={`focus:outline-none ${
+                      className={`${
                         currentCategory === product.category &&
                         'active: text-yellow-400'
                       }`}
