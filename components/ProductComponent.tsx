@@ -9,7 +9,7 @@ import {
 } from '../redux/actions/productActions'
 import Button from './Button'
 
-  const ProductComponent = () => {
+const ProductComponent = () => {
   const products = useSelector((state: State) => state.allproducts.products)
   const indexNumber = useSelector((state: State) => state.allproducts.index)
   const currentCategory = useSelector(
@@ -78,6 +78,7 @@ import Button from './Button'
               {indexNumber >= products.length ? null : (
                 <div className="w-60 flex justify-center items-center">
                   <Button
+                    type="button"
                     onClick={showMore}
                     className="bg-gray-400 text-white rounded-lg p-4"
                   >
@@ -113,6 +114,7 @@ import Button from './Button'
               {indexNumber >= foundCategory.length ? null : (
                 <div className="w-60 flex justify-center items-center">
                   <Button
+                    type="button"
                     onClick={showMore}
                     className="bg-gray-400 text-white rounded-lg p-4"
                   >

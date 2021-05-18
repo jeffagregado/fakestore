@@ -5,9 +5,10 @@ interface Props {
   children: ReactNode
   className?: string
   onClick?: () => void
+  type: 'button' | 'submit' | 'reset' | undefined
 }
 
-const Button = ({ onClick, children, className }: Props) => {
+const Button = ({ onClick, children, className, type }: Props) => {
   // const variants: Variants = {
   //   hover: {
   //     translateY: -5,
@@ -24,7 +25,7 @@ const Button = ({ onClick, children, className }: Props) => {
       onClick={onClick}
       //variants={variants}
       //whileHover="hover"
-      type="button"
+      type={type}
       className={`py-2 px-4 ${
         className
           ? className

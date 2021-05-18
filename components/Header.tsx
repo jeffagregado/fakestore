@@ -13,7 +13,7 @@ const Header = () => {
               <a>FakeShop</a>
             </h1>
           </Link>
-          <Button onClick={showLogIn}>Login</Button>
+          <Button type='button' onClick={showLogIn}>Login</Button>
         </nav>
       </div>
     </>

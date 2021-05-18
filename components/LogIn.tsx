@@ -3,6 +3,8 @@ import { useStore } from '../src/store'
 import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 import useOnClickOutside from '../src/libraries/useClickOutside'
+import Input from './Input'
+import Button from './Button'
 
 interface Props {
   isOpen: boolean
@@ -66,26 +68,16 @@ const LogIn = ({ isOpen }: Props) => {
             className={`${styleLogIn['login_modal']}`}
           >
             <h1 className="mb-4 font-semibold text-2xl text-center">Log In</h1>
-            <div className="border-b-2 divide-solid border-gray-200 w-full"></div>
-            <form action="" className="flex flex-col mt-4 space-y-3">
+            <div className="border-b-2 divide-solid border-gray-200 w-full mb-6"></div>
+            <form action="" className="flex flex-col mt-4 space-y-4">
               <label htmlFor="username">Username</label>
-              <input
-                ref={inputRef}
-                type="text"
-                name="username"
-                id="username"
-                placeholder="username"
-              />
+              <Input name="username" placeholder="username" ref={inputRef} />
               <label htmlFor="password" className="">
                 Password
               </label>
-              <input
-                type="text"
-                name="password"
-                id="password"
-                placeholder="password"
-              />
-              <a>Forget password?</a>
+              <Input name="password" placeholder="password" className="" />
+              <a className="text-right">Forget password?</a>
+              <Button type="submit">Log In</Button>
             </form>
           </motion.div>
         </motion.div>
