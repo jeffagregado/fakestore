@@ -9,7 +9,7 @@ import {
 } from '../redux/actions/productActions'
 import Button from './Button'
 
-const ProductComponent = () => {
+  const ProductComponent = () => {
   const products = useSelector((state: State) => state.allproducts.products)
   const indexNumber = useSelector((state: State) => state.allproducts.index)
   const currentCategory = useSelector(

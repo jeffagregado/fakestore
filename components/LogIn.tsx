@@ -1,7 +1,8 @@
 import styleLogIn from '../styles/LogIn.module.scss'
 import { useStore } from '../src/store'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
+import useOnClickOutside from '../src/libraries/useClickOutside'
 
 interface Props {
   isOpen: boolean
@@ -15,11 +16,22 @@ const LogIn = ({ isOpen }: Props) => {
   // const stateLogIn = useStore((state) => state.showLogin)
   // const isLogIn = useStore((state) => state.isLogIn)
 
+  const modalRef = useRef<HTMLDivElement>(null)
+  useOnClickOutside(modalRef, () => isLogIn())
+
   useEffect(() => {
     if (stateLogIn && (document.body.style.overflow = 'hidden'))
       return () => {
         document.body.removeAttribute('style')
       }
+  }, [stateLogIn])
+
+  // focus on input login
+  const inputRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    if (stateLogIn) {
+      inputRef.current?.focus()
+    }
   }, [stateLogIn])
 
   const overlayVariants: Variants = {
@@ -36,17 +48,6 @@ const LogIn = ({ isOpen }: Props) => {
 
   return (
     <AnimatePresence initial={false}>
-      {/* {isOpen && (
-        <div
-          onClick={isLogIn}
-          className={`${styleLogIn['login_overlay']} ${
-            stateLogIn ? styleLogIn['login--open'] : styleLogIn['login--exit']
-          }`}
-        >
-          <div className={`${styleLogIn['login_modal']}`}>Hello Login</div>
-        </div>
-      )} */}
-
       {isOpen && (
         <motion.div
           key="parent"
@@ -54,7 +55,6 @@ const LogIn = ({ isOpen }: Props) => {
           initial={'hidden'}
           animate={'visible'}
           exit={'exit'}
-          onClick={isLogIn}
           className={`${styleLogIn['login_overlay']}`}
         >
           <motion.div
@@ -63,9 +63,31 @@ const LogIn = ({ isOpen }: Props) => {
             initial={'initial'}
             animate={'animate'}
             exit={'exit'}
+            ref={modalRef}
             className={`${styleLogIn['login_modal']}`}
           >
-            Hello Login
+            <h1 className="mb-4 font-semibold text-2xl text-center">Log In</h1>
+            <div className="border-b-2 divide-solid border-gray-400 w-full"></div>
+            <form action="" className="flex flex-col mt-4 space-y-3">
+              <label htmlFor="username">Username</label>
+              <input
+                ref={inputRef}
+                type="text"
+                name="username"
+                id="username"
+                placeholder="username"
+              />
+              <label htmlFor="password" className="">
+                Password
+              </label>
+              <input
+                type="text"
+                name="password"
+                id="password"
+                placeholder="password"
+              />
+              <a>Forget password?</a>
+            </form>
           </motion.div>
         </motion.div>
       )}
