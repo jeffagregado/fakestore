@@ -13,9 +13,8 @@ const LogIn = ({ isOpen }: Props) => {
     state.showLogin,
     state.isLogIn,
   ])
-  // const stateLogIn = useStore((state) => state.showLogin)
-  // const isLogIn = useStore((state) => state.isLogIn)
 
+  // close modal when clicked outside of form
   const modalRef = useRef<HTMLDivElement>(null)
   useOnClickOutside(modalRef, () => isLogIn())
 
@@ -67,7 +66,7 @@ const LogIn = ({ isOpen }: Props) => {
             className={`${styleLogIn['login_modal']}`}
           >
             <h1 className="mb-4 font-semibold text-2xl text-center">Log In</h1>
-            <div className="border-b-2 divide-solid border-gray-400 w-full"></div>
+            <div className="border-b-2 divide-solid border-gray-200 w-full"></div>
             <form action="" className="flex flex-col mt-4 space-y-3">
               <label htmlFor="username">Username</label>
               <input
