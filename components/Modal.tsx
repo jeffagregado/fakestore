@@ -1,6 +1,5 @@
 import { AnimatePresence, motion, Variants } from 'framer-motion'
 import { ReactNode, useEffect, useRef, RefObject } from 'react'
-import useOnClickOutside from '../src/libraries/useClickOutside'
 
 interface Props {
   children: ReactNode
@@ -31,10 +30,6 @@ const Modal = ({
   className,
   propRef,
 }: Props) => {
-  // close modal when clicked outside of modal
-  // const modalRef = useRef<HTMLDivElement>(null)
-  // useOnClickOutside(modalRef, () => onState)
-
   // add style overflow='hidden' to body when isState is true
   // to remove / hide scrollbar
   // and remove style when isState is false

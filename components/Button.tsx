@@ -4,7 +4,7 @@ import { motion, Variants } from 'framer-motion'
 interface Props {
   children: ReactNode
   className?: string
-  onClick?: () => void
+  onClick?: any
   type: 'button' | 'submit' | 'reset' | undefined
 }
 

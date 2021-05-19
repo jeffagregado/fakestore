@@ -1,0 +1,24 @@
+[
+  {
+    "user": [
+      {
+        "id": 1,
+        "username": "jeffagregado",
+        "password": "12345",
+        "firstName": "Jeffrey Andrew",
+        "lastName": "Agregado",
+        "age": 31,
+        "sex": "male"
+      },
+      {
+        "id": 2,
+        "username": "johndoe",
+        "password": "12345",
+        "firstName": "John",
+        "lastName": "Doe",
+        "age": 40,
+        "sex": "male"
+      }
+    ]
+  }
+]
