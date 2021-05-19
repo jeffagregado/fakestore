@@ -5,12 +5,13 @@ import { motion, AnimatePresence, Variants } from 'framer-motion'
 import useOnClickOutside from '../src/libraries/useClickOutside'
 import Input from './Input'
 import Button from './Button'
+import Modal from './Modal'
 
 interface Props {
   isOpen: boolean
 }
 
-const LogIn = ({ isOpen }: Props) => {
+const LogIn = () => {
   const [stateLogIn, isLogIn] = useStore((state) => [
     state.showLogin,
     state.isLogIn,
@@ -20,12 +21,12 @@ const LogIn = ({ isOpen }: Props) => {
   const modalRef = useRef<HTMLDivElement>(null)
   useOnClickOutside(modalRef, () => isLogIn())
 
-  useEffect(() => {
-    if (stateLogIn && (document.body.style.overflow = 'hidden'))
-      return () => {
-        document.body.removeAttribute('style')
-      }
-  }, [stateLogIn])
+  // useEffect(() => {
+  //   if (stateLogIn && (document.body.style.overflow = 'hidden'))
+  //     return () => {
+  //       document.body.removeAttribute('style')
+  //     }
+  // }, [stateLogIn])
 
   // focus on input login
   const inputRef = useRef<HTMLInputElement>(null)
@@ -33,7 +34,7 @@ const LogIn = ({ isOpen }: Props) => {
     if (stateLogIn) {
       inputRef.current?.focus()
     }
-  }, [stateLogIn])
+  }, [stateLogIn, inputRef])
 
   const overlayVariants: Variants = {
     hidden: { opacity: 0 },
@@ -48,7 +49,7 @@ const LogIn = ({ isOpen }: Props) => {
   }
 
   return (
-    <AnimatePresence initial={false}>
+    /*  <AnimatePresence initial={false}>
       {isOpen && (
         <motion.div
           key="parent"
@@ -82,7 +83,29 @@ const LogIn = ({ isOpen }: Props) => {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence> */
+    <Modal
+      propRef={modalRef}
+      onState={isLogIn}
+      isState={stateLogIn}
+      variants={modalVariants}
+      initial={'initial'}
+      animate={'animate'}
+      exit={'exit'}
+    >
+      <h1 className="mb-4 font-semibold text-2xl text-center">Log In</h1>
+      <div className="border-b-2 divide-solid border-gray-200 w-full mb-6"></div>
+      <form action="" className="flex flex-col mt-4 space-y-4">
+        <label htmlFor="username">Username</label>
+        <Input name="username" placeholder="username" propRef={inputRef} />
+        <label htmlFor="password" className="">
+          Password
+        </label>
+        <Input name="password" placeholder="password" className="" />
+        <a className="text-right">Forget password?</a>
+        <Button type="submit">Log In</Button>
+      </form>
+    </Modal>
   )
 }
 

@@ -3,13 +3,13 @@ import { RefObject } from 'react'
 interface Props {
   name: string
   placeholder?: string
-  ref?: RefObject<HTMLInputElement>
+  propRef?: RefObject<HTMLInputElement>
   className?: string
   autocomplete? : string
   required?: boolean
 }
 
-const Input = ({ name, placeholder, ref, className, autocomplete, required }: Props) => {
+const Input = ({ name, placeholder, propRef, className, autocomplete, required }: Props) => {
   return (
     <input
       type="text"
@@ -18,7 +18,7 @@ const Input = ({ name, placeholder, ref, className, autocomplete, required }: Pr
       placeholder={placeholder}
       autoComplete={autocomplete}
       required={required}
-      ref={ref}
+      ref ={propRef}
       className={`rounded ${className}`}
     />
   )
