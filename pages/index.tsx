@@ -6,7 +6,7 @@ export default function Home() {
   const stateLogIn = useStore((state) => state.showLogin)
   return (
     <>
-      <LogIn isOpen={stateLogIn} />
+      <LogIn />
       <ProductListing />
     </>
   )
